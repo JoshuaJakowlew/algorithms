@@ -32,12 +32,12 @@ def rec_int_mul(x, y):
 
         a, b = x[:n//2], x[n//2:]
         c, d = y[:n//2], y[n//2:]
-        ac = rec_int_mul(a, c)
-        ad = rec_int_mul(a, d)
-        bc = rec_int_mul(b, c)
-        bd = rec_int_mul(b, d)
-        return add(add(ac + '0' * n, add(ad, bc) + '0' * (n//2)), bd)
+        ac = rec_int_mul(a, c).lstrip('0')
+        ad = rec_int_mul(a, d).lstrip('0')
+        bc = rec_int_mul(b, c).lstrip('0')
+        bd = rec_int_mul(b, d).lstrip('0')
+        return add(add(ac + '0' * n, add(ad, bc) + '0' * (n//2)), bd).lstrip('0')
 
 if __name__ == '__main__':
-    print(rec_int_mul('1425', '29173').lstrip('0'))
+    print(rec_int_mul('1425', '29173'))
     print(1425 * 29173)
